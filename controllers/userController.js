@@ -6,6 +6,19 @@ const getUsers = async (req, res) => {
     res.json(users);
 };
 
+
+const getAUser = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.find(id); 
+    res.status(200).json({
+        status: "success",
+        message: "user retrieved successfully",
+        data: {
+            user
+        }
+    });
+};
+
 const deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -23,4 +36,4 @@ const deleteUser = async (req, res) => {
 };
 
 
-module.exports = { deleteUser, getUsers };
+module.exports = { deleteUser, getUsers, getAUser };

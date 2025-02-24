@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
         console.log(user);
 
         // Generate a JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1000s' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1hr' });
         
 
         // Respond with the user data and token
